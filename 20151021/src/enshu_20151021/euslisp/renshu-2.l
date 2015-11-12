@@ -43,13 +43,6 @@
   (:j1 (&rest args) (forward-message-to j1 args))
   )
 
-(setq r (instance servo-model :init))
-(objects (list r))
-(setq i 0) 
-(do-until-key
-    (send r :angle-vector (float-vector (* 3 (sin (/ i 100.0)))))
-    (send *irtviewer* :draw-objects)
-    (incf i))
 ;; 2)
 ;; サーボモジュールを参考に直動ジョイント(linear-joint)を使ったアクチュエータを作ってみよ．
 
