@@ -50,15 +50,7 @@ class a_star_puzzle:
                 if x_state != x_ans and x_state != 0:
                     diff += 1
         return diff
-
-    # def difference_(self,state):
-    #     diff = 0
-    #     for (line_state, line_ans) in zip(state,self.ans):
-    #         for (x_state, x_ans) in zip(line_state,line_ans):
-    #             if x_state != x_ans:
-    #                diff += 1
-    #     return diff
-    #
+    
     def zero_pos(self,state):
         for i in range(0,len(state)):
             for j in range(0,len(state[i])):
