@@ -22,20 +22,14 @@ class a_star_puzzle:
         return state
 
     def solve(self,state,step):
-        diff = self.difference(state)
-        if diff == 0:
-            if self.difference_(state) == 2:
-                print "Total Step: " + str(step+1)
-                sys.exit(0)
-            elif self.difference_(state) == 0:
-                print "Total Step: " + str(step)
-                sys.exit(0)
-            else:
-                print "something is wrong"
         value = self.value(state,step)
         print "Step: " + str(step) 
         print "Value: " + str(value)
         print state
+        diff = self.difference(state)
+        if diff == 0:
+            print "Total Step: " + str(step)
+            sys.exit(0)
         step += 1
         [x_zero,y_zero] = self.zero_pos(state)
         zero_next = []
@@ -57,14 +51,14 @@ class a_star_puzzle:
                     diff += 1
         return diff
 
-    def difference_(self,state):
-        diff = 0
-        for (line_state, line_ans) in zip(state,self.ans):
-            for (x_state, x_ans) in zip(line_state,line_ans):
-                if x_state != x_ans:
-                   diff += 1
-        return diff
-
+    # def difference_(self,state):
+    #     diff = 0
+    #     for (line_state, line_ans) in zip(state,self.ans):
+    #         for (x_state, x_ans) in zip(line_state,line_ans):
+    #             if x_state != x_ans:
+    #                diff += 1
+    #     return diff
+    #
     def zero_pos(self,state):
         for i in range(0,len(state)):
             for j in range(0,len(state[i])):
